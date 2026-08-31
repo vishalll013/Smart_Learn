@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#f0f9ff] text-slate-800 font-sans transition-colors duration-300 overflow-x-hidden;
+  }
+  body.dark {
+    @apply bg-[#0f172a] text-slate-100;
+  }
+  
+  /* Reset some default styles from Vite templates */
+  #root {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-inline: none !important;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-[#e0f2fe] dark:bg-slate-800;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[#0284c7]/30 hover:bg-[#0284c7]/50 rounded-full transition-colors;
+}
+
+/* Common Child-Friendly Design Utilities */
+.glass-card {
+  @apply bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-white/40 dark:border-slate-700/40 shadow-playful;
+}
+
+.hover-scale {
+  @apply transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 active:scale-[0.98];
+}
+
+/* Gradient Borders */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #0284c7, #22c55e, #eab308);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}

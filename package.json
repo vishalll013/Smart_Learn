@@ -1,0 +1,16 @@
+{
+  "name": "smart-learning-platform",
+  "version": "1.0.0",
+  "description": "Smart Learning for Young Minds educational website",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install --legacy-peer-deps && npm install --prefix backend --legacy-peer-deps && npm install --prefix frontend --legacy-peer-deps",
+    "backend": "npm run dev --prefix backend",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "seed": "npm run seed --prefix backend"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
